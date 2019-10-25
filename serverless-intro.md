@@ -2,6 +2,7 @@ title: serverless浅谈介绍
 speaker: vadxq
 plugins:
     - echarts
+    - mermaid
 
 <slide class="bg-black-blue aligncenter" image="https://www.canva.cn/learn/wp-content/uploads/sites/17/2019/10/bridge-4456255_1280.jpg .dark">
 
@@ -77,23 +78,23 @@ FaaS 是一种面向函数的构建和部署软件的方式，最先由亚马逊
 
 # Serverless 应用组成
 
----
 
+<!-- 1.网关 API Gateway 来接受和处理成千上万个并发 API 调用，包括流量管理、授权和访问控制、监控等
+2.计算服务 Lambda 来进行代码相关的一切计算工作，诸如授权验证、请求、输出等等
+3.基础设施管理 CloudFormation 来创建和配置 AWS 基础设施部署，诸如所使用的 S3 存储桶的名称等
+4.静态存储 S3 作为前端代码和静态资源存放的地方
+5.数据库 DynamoDB 来存储应用的数据 -->
 
-
-```shell {.animated.fadeInUp}
- # create a new slide with an official template
-$ nodeppt new slide.md
-
-# create a new slide straight from a github template
-$ nodeppt new slide.md -t username/repo
-
-# start local sever show slide
-$ nodeppt serve slide.md
-
-# to build a slide
-$ nodeppt build slide.md
+```mermaid {.animated.fadeInUp}
+graph TD
+    B[Web Client]
+    B-->C[API Geateway]
+        C-->D(Function);
+            D-->F(s)
+            D-->E(microService/database);
 ```
+
+
 <slide class="bg-light aligncenter">
 
 `.text-cols (2 columns)`
