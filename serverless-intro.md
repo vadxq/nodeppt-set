@@ -240,9 +240,9 @@ Serverless 最大的好处是减少运维，减少固定服务器资源，不需
 <slide class="bg-black aligncenter" image="https://qnimg.vadxq.com/ppt/2019/photo-1421930535025-d2af27c14065.jfif ">
 :::{.aligncenter}
 
-# 谢谢！
+# 谢谢！{.text-landing}
 
-Thank you !
+Thank you ! {.text-landing}
 :::
 
 :::footer
