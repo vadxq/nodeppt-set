@@ -156,10 +156,11 @@ imageData.data[i * 4 + 2] = new_black;
 
 展现一下我们前端的canvas的一个小小创意
 
-
 <slide class="bg-black-blue aligncenter" >
 
-<iframe src="https://down.vadxq.com" width="100%" height="620px">
+###### 使用canvas绘制圣诞树，让TA感到惊喜与崇拜 <a href="https://ppt.vadxq.com/demo/interestingFE/christmasTree.html" target="__blank">点击ppt外预览</a> {.animated.fadeInUp.delay-600}
+
+<iframe src="https://ppt.vadxq.com/demo/interestingFE/christmasTree.html" width="100%" height="620px">
 </iframe>
 
 <slide :class="size-80 " >
