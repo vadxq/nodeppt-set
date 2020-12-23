@@ -1,7 +1,5 @@
 title: 前端与圣诞碰撞的浪漫
 speaker: vadxq
-plugins:
-    - echarts
 
 <slide class="bg-black-blue aligncenter" image="https://qnimg.vadxq.com/ppt/2019/bridge-4456255_1280.webp .dark">
 
@@ -137,13 +135,16 @@ imageData.data[i * 4 + 2] = new_black;
 ###### 高斯模糊-两维的卷积模糊操作,通过让图片的每个像素与四周的像素按照某种权重进行分布求值。公式：二维高斯分布函数
 
 ![](https://qnimg.vadxq.com/ppt/2020/static/%E4%BA%8C%E7%BB%B4%E9%AB%98%E6%96%AF%E5%88%86%E5%B8%83%E5%87%BD%E6%95%B0.gif)
+
+<a target="__blank" href="https://ppt.vadxq.com/demo/interestingFE/canvasPhoto/gaussBlur.js">参考代码</a>
+
 ###### 浮雕效果与刻雕效果-将某个像素与周边的差值较大的检测出来，然后替换成为255，一般我们将这个常量C设置成为128【255的一半】
 
 ![](https://qnimg.vadxq.com/ppt/2020/static/%E6%B5%AE%E9%9B%95%E5%85%AC%E5%BC%8F%E5%9B%BE%E7%89%87.gif) (C常量，Xa后一个像素的RGB，Xb前一个像素的RGB)
 
-其中color代表的是最后的色值，Xa和Xb代表的是当前像素前后两点的RGB（中的某一个值），C代表的是一个常量
+其中color代表的是最后的色值，Xa和Xb代表的是当前像素前后两点的RGB（中的某一个值），C代表的是一个常量。原理就是将某个像素与周边的差值较大的检测出来，然后替换成为255，一般我们将这个常量C设置成为128【255的一半】
 
-原理就是将某个像素与周边的差值较大的检测出来，然后替换成为255，一般我们将这个常量C设置成为128【255的一半】
+<a target="__blank" href="https://ppt.vadxq.com/demo/interestingFE/canvasPhoto/reliefprocess.js">参考代码</a>
 
 ###### 刻雕效果-公式变动
 ![](https://qnimg.vadxq.com/ppt/2020/static/%E5%88%BB%E9%9B%95%E6%95%88%E6%9E%9C.gif)
@@ -158,21 +159,141 @@ imageData.data[i * 4 + 2] = new_black;
 
 <slide class="bg-black-blue aligncenter" >
 
-###### 使用canvas绘制圣诞树，让TA感到惊喜与崇拜 <a href="https://ppt.vadxq.com/demo/interestingFE/christmasTree.html" target="__blank">点击ppt外预览</a> {.animated.fadeInUp.delay-600}
+###### 使用canvas绘制圣诞树和爱心，让TA感到惊喜与崇拜 <a href="https://ppt.vadxq.com/demo/interestingFE/christmasTree.html" target="__blank">点击ppt外预览</a> {.animated.fadeInUp.delay-600}
 
 <iframe src="https://ppt.vadxq.com/demo/interestingFE/christmasTree.html" width="100%" height="620px">
 </iframe>
 
-<slide :class="size-80 " >
+<slide class="bg-black-blue aligncenter" >
 
+## Nodejs方向
 
-<slide :class="size-80 " >
+---
 
-<slide :class="size-80 " >
+* #### Nodejs与计算机基础知识 {.animated.fadeInUp}
+* #### 小型既成项目后台 {.animated.fadeInUp.delay-400}
+* #### 前端自动化与智能化 {.animated.fadeInUp.delay-800}
+* #### BFF {.animated.fadeInUp.delay-1600}
+* #### Serverless第一等公民 {.animated.fadeInUp.delay-2s}
 
+<slide class="bg-black-blue aligncenter" >
 
+### 提高家庭地位的创意来了！
 
+---
 
-<slide :class="size-80 " >
+爬取一言每日一句情话发送至TA短信里 <a target="__blank" href="https://developer.hitokoto.cn/sentence/">一言开发者中心</a>
 
-http://www.romancortes.com/blog/how-i-did-the-1kb-christmas-tree/
+爬取每日天气发送至TA短信里 <a href="http://data.cma.cn/" target="__blank">国家气象科学数据中心</a>
+
+...
+
+<slide class="bg-black-blue aligncenter" >
+
+## 前端 & 人工智能
+
+---
+
+* #### NLP玩法 {.animated.fadeInUp}
+* #### 语音合成玩法 {.animated.fadeInUp.delay-400}
+* #### 人脸处理 {.animated.fadeInUp.delay-800}
+
+<slide class="bg-black-blue aligncenter" >
+
+## 人工智能相关js库
+
+---
+
+* #### TensorFlow.js {.animated.fadeInUp}
+  * 基于 TensorFlow.js Node 的 tvnet 算法，可以提取视频中的稠密光流。
+* #### DeepLearning.js {.animated.fadeInUp.delay-400}
+* #### Kera.js {.animated.fadeInUp.delay-800}
+
+<slide class="bg-black-blue aligncenter" >
+
+## 高性能计算
+
+---
+
+* #### asm.js {.animated.fadeInUp}
+* #### WebAssembly {.animated.fadeInUp.delay-400}
+* #### GPU {.animated.fadeInUp.delay-800}
+* #### Opencv {.animated.fadeInUp.delay-800}
+
+<slide class="bg-black-blue aligncenter" >
+
+## 呐！如何减少跪键盘的几率呢？
+
+<slide class="bg-black-blue aligncenter" >
+
+## 当然是更了解TA，了解TA想要什么，喜欢什么，如TA意
+
+<slide class="bg-black-blue aligncenter" >
+
+#### 机器人自动回复TA的消息 <a target="__blank" href="https://github.com/vadxq/pushQQlove">参考项目</a>
+
+#### 语音合成-打游戏的时候回复 <a target="__blank" href="https://ai.baidu.com/tech/speech/tts">百度语音合成</a>
+
+#### 人脸处理-美化照片 <a target="__blank" href="https://open.youtu.qq.com/#/open">腾讯优图</a>
+
+<slide class="bg-black-blue aligncenter" >
+
+## 前端 & 硬件 IOT
+
+---
+
+* #### 嵌入式操作系统，包括VxWorks、FreeRTOS、LiteOS等 {.animated.fadeInUp}
+* #### 极客硬件平台，包括树莓派、Arduino等 {.animated.fadeInUp.delay-400}
+* #### JavaScript IoT应用开发平台，包括Ruff、Tessel、JerryScript、Johnny-Five等 {.animated.fadeInUp.delay-800}
+
+<slide class="bg-black-blue aligncenter" >
+
+## 俘获美人心的技巧来了--魔镜
+
+<slide class="bg-black-blue aligncenter" >
+
+#### 爱美之心-魔镜效果图 <a target="__blank" href="https://www.zhihu.com/question/37804443/answer/285836686">参考来源</a> <a target="__blank" href="https://ruff.io/">Ruff.io</a>
+![](https://qnimg.vadxq.com/ppt/2020/static/%E9%AD%94%E9%95%9C.jpg)
+
+<slide class="bg-black-blue aligncenter" >
+
+## 如果这个还不能挽救，那就使出我们的终极杀手锏
+
+<slide class="bg-black-blue aligncenter" >
+
+## 买买买！！--比价
+
+---
+
+- ##### 通过数据分析喜好！<a href="https://cart.taobao.com/cart.htm" target="__blank">数据参考</a>
+- ##### 通过node定时查询记录价格 <a target="__blank" href="https://www.free-api.com/doc/156">商品比价</a>
+- ##### 用最少的钱买对TA心的礼物
+
+<slide class="bg-black-blue aligncenter" image="https://qnimg.vadxq.com/ppt/2019/photo-1421930535025-d2af27c14065.jfif .anim">
+:::{.aligncenter}
+
+# 圣诞快乐 {.text-landing}
+Merry Christmas {.text-landing}
+# 谢谢 {.text-landing}
+
+Thank you {.text-landing}
+:::
+
+---
+
+Shanghai 2020.12.25 {.text-intro.animated.fadeInUp.delay-500}
+
+vadxq {.text-intro.animated.fadeInUp.delay-500}
+
+:::footer
+
+[回味：https\://ppt.vadxq.com](https://ppt.vadxq.com){.alignleft}
+
+[:fa-github: @vadxq](https://github.com/vadxq){.alignright}
+[:fa-twitter: @vadxq](https://github.com/vadxq){.alignright}
+
+:::
+
+<!-- :::header
+Header (logo) :.alignright:{.alignright} -->
+:::
