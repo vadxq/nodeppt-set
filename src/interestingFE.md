@@ -297,3 +297,10 @@ vadxq {.text-intro.animated.fadeInUp.delay-500}
 <!-- :::header
 Header (logo) :.alignright:{.alignright} -->
 :::
+
+<slide class="bg-black-blue aligncenter" >
+
+###### 抽取下一位幸运分享的幸运听众 {.animated.fadeInUp.delay-600}
+
+<iframe src="https://www.random-online.com/" width="100%" height="620px">
+</iframe>
