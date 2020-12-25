@@ -2,7 +2,31 @@ const { exec, spawn } = require('child_process');
 const fs = require('fs');
 const path = require('path');
 
-const addGA = (src) => {
+console.log('----ALL start----');
+
+const cpStatic = () => {
+  setTimeout(() => {
+    console.log('----start cp css---');
+    spawn('cp', ['-r', 'dist/css', 'build/css'])
+  
+    console.log('----start cp img---');
+    spawn('cp', ['-r', 'dist/img', 'build/img'])
+  
+    console.log('----start cp js---');
+    spawn('cp', ['-r', 'dist/js', 'build/js'])
+  
+    console.log('----start cp index---');
+    spawn('cp', ['-r', 'index.html', 'build/index.html'])
+  
+    console.log('----start cp demo---');
+    spawn('cp', ['-r', 'demo', 'build/demo'])
+  
+    console.log('----ALL End----');
+  }, 1000);
+}
+
+const addGA = async (src) => {
+  console.log(`----start addGA ${src}---`);
   const srcArg = src.split('/');
   const mdFilePath = srcArg[srcArg.length - 1];
   const htmlFilePath = `${mdFilePath.split('.')[0]}.html`;
@@ -11,27 +35,32 @@ const addGA = (src) => {
   const readStream = fs.createReadStream(`dist/${htmlFilePath}`);
   const writeStream = fs.createWriteStream(`build/${htmlFilePath}`);
 
-  readStream.on('data', function(data){
-    console.log(data.toString());
+  console.log(`----start readStream build ${src}---`);
+  await readStream.on('data', function (data) {
     const htmlString = data.toString()
     const dataString = htmlString.replace('</body></html>', '<script async src="https://www.googletagmanager.com/gtag/js?id=UA-83694330-1"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag("js", new Date());gtag("config", "UA-83694330-1");</script></body></html>')
     writeStream.write(dataString);
+    console.log(`----end writeStream build ${src}---`);
   });
+  console.log(`----end addGA ${src}---`);
 }
 
 /**
  * build
  * @param src build文件路径
  */
-const nodepptExec = (src) => {
+const nodepptExec = async (src) => {
   console.log('nodeppt');
-  exec(`nodeppt build ${src}`, [], (err, stdout, stderr) => {
-    if(err) {
-        console.log(err);
-        return;
+  console.log(`----start nodeppt build ${src}---`);
+  await exec(`nodeppt build ${src}`, [], async (err, stdout, stderr) => {
+    if (err) {
+      console.log(err);
+      return;
     }
-    console.log(stdout);
-    addGA(src)
+    console.log(`----end nodeppt build ${src}---`);
+    setTimeout(() => {
+      addGA(src)
+    }, 100);
   })
 }
 
@@ -41,7 +70,7 @@ const nodepptExec = (src) => {
  */
 const fileDisplay = async (filePath) => {
   // 根据文件路径读取文件，返回文件列表
-  fs.readdir(filePath, function (err, files) {
+  await fs.readdir(filePath, function (err, files) {
     if (err) {
       console.warn(err)
     } else {
@@ -68,12 +97,10 @@ const fileDisplay = async (filePath) => {
       });
     }
   });
+
+  cpStatic()
 }
 
+console.log('----start fileDisplay---');
 fileDisplay('src')
-
-spawn('cp', ['-r', 'dist/css', 'build/css'])
-spawn('cp', ['-r', 'dist/img', 'build/img'])
-spawn('cp', ['-r', 'dist/js', 'build/js'])
-spawn('cp', ['-r', 'index.html', 'build/index.html'])
-spawn('cp', ['-r', 'demo', 'build/demo'])
+console.log('----end fileDisplay---');
