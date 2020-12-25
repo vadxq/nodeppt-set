@@ -68,7 +68,7 @@ By vadxq {.text-intro.animated.fadeInUp.delay-500}
 * ###### Canvas与图片效果处理 {.animated.fadeInUp.delay-400}
   * 反色（负片） {.animated.fadeInUp.delay-500}
   * 去色 {.animated.fadeInUp.delay-600}
-  * 单色 Position {.animated.fadeInUp.delay-700}
+  * 单色 {.animated.fadeInUp.delay-700}
   * 中国版画 {.animated.fadeInUp.delay-800}
   * 高斯模糊 {.animated.fadeInUp.delay-900}
   * 浮雕刻雕 {.animated.fadeInUp.delay-1100}
