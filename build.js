@@ -1,56 +1,14 @@
-const { exec, spawn } = require('child_process');
+const { exec } = require('child_process');
 const fs = require('fs');
 const path = require('path');
 
-console.log('----ALL start----');
-
-const cpStatic = () => {
-  setTimeout(() => {
-    console.log('----start cp css---');
-    spawn('cp', ['-r', 'dist/css', 'build/css'])
-  
-    console.log('----start cp img---');
-    spawn('cp', ['-r', 'dist/img', 'build/img'])
-  
-    console.log('----start cp js---');
-    spawn('cp', ['-r', 'dist/js', 'build/js'])
-  
-    console.log('----start cp index---');
-    spawn('cp', ['-r', 'index.html', 'build/index.html'])
-  
-    console.log('----start cp demo---');
-    spawn('cp', ['-r', 'demo', 'build/demo'])
-  
-    console.log('----ALL End----');
-  }, 1000);
-}
-
-const addGA = async (src) => {
-  console.log(`----start addGA ${src}---`);
-  const srcArg = src.split('/');
-  const mdFilePath = srcArg[srcArg.length - 1];
-  const htmlFilePath = `${mdFilePath.split('.')[0]}.html`;
-  console.log(htmlFilePath);
-
-  const readStream = fs.createReadStream(`dist/${htmlFilePath}`);
-  const writeStream = fs.createWriteStream(`build/${htmlFilePath}`);
-
-  console.log(`----start readStream build ${src}---`);
-  await readStream.on('data', function (data) {
-    const htmlString = data.toString()
-    const dataString = htmlString.replace('</body></html>', '<script async src="https://www.googletagmanager.com/gtag/js?id=UA-83694330-1"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag("js", new Date());gtag("config", "UA-83694330-1");</script></body></html>')
-    writeStream.write(dataString);
-    console.log(`----end writeStream build ${src}---`);
-  });
-  console.log(`----end addGA ${src}---`);
-}
+console.log('----BUILD ALL start----');
 
 /**
  * build
  * @param src build文件路径
  */
 const nodepptExec = async (src) => {
-  console.log('nodeppt');
   console.log(`----start nodeppt build ${src}---`);
   await exec(`nodeppt build ${src}`, [], async (err, stdout, stderr) => {
     if (err) {
@@ -58,9 +16,6 @@ const nodepptExec = async (src) => {
       return;
     }
     console.log(`----end nodeppt build ${src}---`);
-    setTimeout(() => {
-      addGA(src)
-    }, 100);
   })
 }
 
@@ -97,8 +52,6 @@ const fileDisplay = async (filePath) => {
       });
     }
   });
-
-  cpStatic()
 }
 
 console.log('----start fileDisplay---');
