@@ -1,4 +1,4 @@
-const { spawn } = require('child_process');
+const { exec, spawn } = require('child_process');
 const fs = require('fs');
 const path = require('path');
 
@@ -79,6 +79,7 @@ const fileDisplay = async (filePath) => {
   cpStatic()
 }
 
+exec('mkdir build')
 console.log('----start fileDisplay---');
 fileDisplay('dist')
 console.log('----end fileDisplay---');
